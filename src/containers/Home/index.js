@@ -1,15 +1,18 @@
 import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import './Home.css'
 
-const Home = () => {
+const Home = (props) => {
+
+  const fnGetLocation = () => {
+    window.navigator.geolocation.getCurrentPosition(console.log)
+  }
   return (
-      <Layout>
-          <div style={{margin:'5rem'}} className='container text-center'>
-          <h1>Welcome to Admin Dashboard</h1>
-          <p>Loremeifkb</p>
-          </div>
-      </Layout>
+    <Layout sidebar>
+      <button onClick={fnGetLocation}>Allow location</button>
+    </Layout>
   )
 };
 

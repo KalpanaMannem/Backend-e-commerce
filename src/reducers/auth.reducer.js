@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react';
 import React from 'react';
 import { authConstants } from '../actions/constants';
 
@@ -10,7 +11,11 @@ const init={
        picture:""
    },
    authenticate:false,
-   authenticating:false
+   authenticating:false,
+   loading:false,
+   error:null,
+   message:""
+
 }
 
 export const loginReducer = (state=init,action) => {
@@ -31,6 +36,24 @@ export const loginReducer = (state=init,action) => {
                 authenticating:false
             }
             break;
+        case authConstants.LOGOUT_REQUEST:
+            state={
+                ...state,
+                loading:true
+            }
+            break;
+        case authConstants.LOGOUT_SUCCESS:
+            state={
+                ...init
+            }
+            break;
+        case authConstants.LOGOUT_FAILURE:
+            state={
+                ...init,
+                error:action.payload.error,
+                loading:false
+               
+            }
     }
   return state;
 };
