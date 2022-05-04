@@ -28,7 +28,7 @@ const Products = () => {
         form.append("description", description);
         form.append("category", categoryId);
         for (let pic of productPictures) {
-            form.append("productPictures", pic);
+            form.append("productPicture", pic);
         }
 
         dispatch(addProduct(form));
@@ -138,7 +138,7 @@ const Products = () => {
                     productPictures.length > 0 ?
                         productPictures.map((pic, index) => <div key={index}>{pic.name}</div>) : null
                 }
-                <input type="file" name="productPictures" onChange={handleProductPicture} />
+                <input type="file" name="productPicture" onChange={handleProductPicture} />
 
 
             </NewModal>

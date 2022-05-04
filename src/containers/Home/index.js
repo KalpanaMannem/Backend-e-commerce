@@ -6,12 +6,10 @@ import './Home.css'
 
 const Home = (props) => {
 
-  const fnGetLocation = () => {
-    window.navigator.geolocation.getCurrentPosition(console.log)
-  }
+
   return (
     <Layout sidebar>
-      <button onClick={fnGetLocation}>Allow location</button>
+
     </Layout>
   )
 };
